@@ -16,8 +16,8 @@ resources:
   - repository: components
     type: github
     ref: $(branchname)
-    endpoint: EliLillyCo (1)
-    name: EliLillyCo/GIS_Azure_Landingzone_Components
+    endpoint: (connection name)
+    name: (Repository Path)
 
 stages:
   - stage:  Deployment
