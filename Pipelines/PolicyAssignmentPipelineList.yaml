@@ -1,0 +1,195 @@
+name: landingzone
+
+variables:
+- name: pipelineCustomVersion
+  value: 1.0.0
+- template: pipeline.environment.yaml 
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - $(branchname)
+
+resources:
+  repositories:
+  - repository: components
+    type: github
+    ref: $(branchname)
+    endpoint: EliLillyCo (1)
+    name: EliLillyCo/GIS_Azure_Landingzone_Components
+
+stages:
+  - stage:  Deployment
+    displayName:  Deployment
+    jobs:
+    - template: PolicyAssignmentPipeline.yaml
+      parameters:
+        connectionService: 
+        - $(connectionService)
+        managementGroupName: $(managementgroupname) 
+        deploymentBlocks:        
+        - path: /GIS_Azure_Landingzone_Components/Policies/Initiative
+          displayname: ResourcesDiagnosticsInitiative
+          policy: DiagInitiativeAssign.json
+        
+        - path: /GIS_Azure_Landingzone_Components/Policies/Tagging
+          displayname: PolicyDenySubscriptionWithoutTags
+          policy: Deny-SubscriptionWithoutTag-Assignment.json
+          
+        - path: /GIS_Azure_Landingzone_Components/Policies/Tagging
+          displayname: PolicyInheritAlltagsFromRGMissing
+          policy: inherit-tagsFromRGMissing-Assignment.json
+          
+        - path: /GIS_Azure_Landingzone_Components/Policies/Tagging
+          displayname: PolicyDenyRGwithoutTags
+          policy: Deny-RGWithoutTag-Assignment.json
+          definitionLocation: ''
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/Tagging
+          displayname: PolicyAddTagtoResource
+          policy: Add-ResourceTag-Assignment.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AKS
+          displayname: PolicyDefinitionDenyPublicEndpointAKS
+          policy: deny_PublicEndpointAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ApplicationGateway
+          displayname: PolicyDefinitionWAFAppGateway
+          policy: deny_AppGW_without_WAFAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AutomationAccount
+          displayname: PolicyDefinitionNoChildResourcesAutomationAccount
+          policy: noChildResourcesAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/CosmosDB
+          displayname: PolicyDefinitiondenyPublicEndpointCosmosDB
+          policy: deny_PublicEndpointAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/KeyVault
+          displayname: PolicyDefinitionAppendSoftDelete
+          policy: append_SoftDeleteAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WebApp
+          displayname: PolicyAppServiceHttpsOnly
+          policy: Append-AppService-httpsonlyAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WebApp
+          displayname: PolicyAppServiceLatestTLS
+          policy: Append-AppService-latestTLSAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/RedisCache
+          displayname: PolicyRedisNonSSLPort
+          policy: Append-Redis-disableNonSslPortAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/RedisCache
+          displayname: PolicyRedisSSLEnforcement
+          policy: Append-Redis-sslEnforcementAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ApiApp
+          displayname: PolicyDenyApiAppHttp
+          policy: Deny-AppServiceApiApp-httpAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/FunctionApp
+          displayname: PolicyDenyAppFunctionHttp
+          policy: Deny-AppServiceFunctionApp-httpAssign.json
+          
+        - path: /GIS_Azure_Landingzone_Components/Policies/Governance
+          displayname: PolicyDenyRDPfromInternet
+          policy: RDP-from-InternetAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WebApp
+          displayname: PolicyDenyWebAppHttp
+          policy: Deny-AppServiceWebApp-httpAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MySQL
+          displayname: PolicyDenyMySqlHttp
+          policy: Deny-MySql-httpAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PostgreSQL
+          displayname: PolicyDenyPostgreSQLHttp
+          policy: Deny-PostgreSQL-httpAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PrivateDNSZone
+          displayname: PolicyDenyPrivateDNSZone
+          policy: Deny-Private-DNS-ZoneAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MariaDB
+          displayname: PolicyDenyPublicEndpointMariaDB
+          policy: Deny-publicEndpoint-MariaDBAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MySQL
+          displayname: PolicyDenyPublicEndpointMySQL
+          policy: Deny-PublicEndpoint-MySQLAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PostgreSQL
+          displayname: PolicyDenyPublicEndpointPostgreSQL
+          policy: Deny-PublicEndpoint-PostgreSQLAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDenyPublicEndpointSql
+          policy: Deny-PublicEndpoint-SqlAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDenyPublicEndpointStorage
+          policy: Deny-PublicEndpoint-StorageAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PublicIP
+          displayname: PolicyDenyPublicIP
+          policy: Deny-PublicIPAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/RedisCache
+          displayname: PolicyDenyRedisHttp
+          policy: Deny-Redis-httpAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDenySqlMinTLS
+          policy: Deny-Sql-minTLSAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDenySqlManagedInstanceMinTLS
+          policy: Deny-SqlMi-minTLSAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDenyStorageMinTLS
+          policy: Deny-Storage-minTLSAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualNetwork
+          displayname: PolicyDenySubnetWithoutNSG
+          policy: Deny-Subnet-Without-NsgAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualNetwork
+          displayname: PolicyDenySubnetWithoutUDR
+          policy: Deny-Subnet-Without-UDRAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MySQL
+          displayname: PolicyDeployMySQLSSLEnforcement
+          policy: Deploy-MySQL-sslEnforcementAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PostgreSQL
+          displayname: PolicyDeployPostgreSQLsslEnforcement
+          policy: Deploy-PostgreSQL-sslEnforcementAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySQLAuditSettings
+          policy: Deploy-Sql-AuditingSettingsAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySQLminTLS
+          policy: Deploy-SQL-minTLSAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySqlSecurityAlertPolicies
+          policy: Deploy-Sql-SecurityAlertPoliciesAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySQLTDE
+          policy: Deploy-Sql-TdeAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySqlMIminTLS
+          policy: Deploy-SqlMi-minTLSAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDeployStorageSSLEnforcement
+          policy: Deploy-Storage-sslEnforcementAssign.json

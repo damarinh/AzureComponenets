@@ -1,0 +1,34 @@
+name: landingzone
+
+variables:
+- name: pipelineCustomVersion
+  value: 1.0.0
+- template: pipeline.environment.yaml 
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - $(branchname)
+
+resources:
+  repositories:
+  - repository: components
+    type: github
+    ref: $(branchname)
+    endpoint: EliLillyCo (1)
+    name: EliLillyCo/GIS_Azure_Landingzone_Components
+
+stages:
+  - stage:  Deployment
+    displayName:  Deployment
+    jobs:
+    - template: PolicyInitiativePipeline.yaml
+      parameters:
+        connectionService: 
+        - $(connectionService)
+        managementGroupName: $(managementgroupname)        
+        deploymentBlocks:
+        - path: /GIS_Azure_Landingzone_Components/Policies/Initiative
+          displayname: InitiativeforResourceDiagnostics
+          initiative: DiagInitiative.json

@@ -1,0 +1,34 @@
+parameters:
+  rootFolder: $(System.DefaultWorkingDirectory)/
+  # This pipeline is used to deploy policies into Azure 
+  # Management group name will be the plain text name unless it is the tenant root group where you will use the ID
+  managementGroupName:  $(managementGroupName)
+  # references folder where modified policy files will be
+  folderName: "Policies"
+  connectionService: ''
+  deploymentBlocks: ''  
+
+
+jobs:
+- ${{ each connectionService in parameters.connectionService }}:
+  - ${{ each deploymentBlock in parameters.deploymentBlocks }}:
+    - deployment: ${{ deploymentBlock.DisplayName }}
+      environment: env1
+      pool:
+        vmImage: vs2017-win2016
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - checkout: self
+              - checkout: components
+              - task: AzurePowerShell@4
+                displayName: "Create Policy Definition"
+                inputs:
+                  azureSubscription: '${{ connectionService }}'
+                  ScriptPath: "$(Build.SourcesDirectory)/GIS_Azure_Landingzone_Pipeline/Scripts/Create-InitiativeDef.ps1"
+                  ScriptArguments: 
+                    -rootFolder '${{ parameters.rootFolder }}'
+                    -modifiedInitiatives '${{ deploymentBlock.path }}/${{ deploymentBlock.initiative }}'
+                    -managementGroupName '${{ parameters.managementGroupName }}'
+                  azurePowerShellVersion: LatestVersion

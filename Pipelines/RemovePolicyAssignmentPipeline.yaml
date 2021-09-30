@@ -1,0 +1,34 @@
+parameters:
+  rootFolder: $(System.DefaultWorkingDirectory)/
+  # Definition location references management group of the initiative (tenant root group for delivery)
+  definitionLocation: "dev-lz-mg"
+  folderName: "Assignments"
+  # Reference to service connections of the different environments
+  prodServiceConnection: "service-connection-dev-lz-mg"
+  connectionService: ''
+  deploymentBlocks: ''
+  managementGroupName: ''
+    
+jobs:
+- ${{ each connectionService in parameters.connectionService }}:
+  - ${{ each deploymentBlock in parameters.deploymentBlocks }}:
+    - deployment: '${{ deploymentBlock.DisplayName }}'
+      pool:
+        vmImage: vs2017-win2016
+      environment: env1
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - checkout: self
+              - checkout: components
+              - task: AzurePowerShell@4
+                displayName: "Remove Assignments"
+                inputs:
+                  azureSubscription: '${{ connectionService }}'
+                  ScriptPath: "$(Build.SourcesDirectory)/GIS_Azure_Landingzone_Pipeline/Scripts/Remove-PolicyAssignment.ps1"
+                  ScriptArguments: 
+                    -rootFolder '${{ parameters.rootFolder }}'
+                    -assignmentNames '${{ deploymentBlock.path }}/${{ deploymentBlock.policy }}'
+                    -definitionLocation '${{ parameters.managementGroupName }}'
+                  azurePowerShellVersion: LatestVersion

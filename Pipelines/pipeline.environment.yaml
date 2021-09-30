@@ -1,0 +1,21 @@
+variables:
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev-branch-1') }}:
+    environment: dev1
+    connectionService: service-connection-dev-lz-mg
+    branchname: dev-branch-1
+    managementgroupname: dev-lz-mg
+    definitionLocation: dev-lz-mg
+  
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev-branch-2') }}:
+    environment: dev2
+    connectionService: service-connection-dev-lz-mg
+    branchname: dev-branch-2
+    managementgroupname: dev-lz-mg
+    definitionLocation: dev-lz-mg
+
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
+    environment: main
+    connectionService: service-connection-prod-lz-mg
+    branchname: main
+    managementgroupname: prod-lz-mg
+    definitionLocation: prod-lz-mg

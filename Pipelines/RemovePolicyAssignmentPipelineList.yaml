@@ -1,0 +1,94 @@
+name: landingzone
+
+variables:
+- name: pipelineCustomVersion
+  value: 1.0.0
+- template: pipeline.environment.yaml 
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - $(branchname)
+
+resources:
+  repositories:
+  - repository: components
+    type: github
+    ref: $(branchname)
+    endpoint: EliLillyCo (1)
+    name: EliLillyCo/GIS_Azure_Landingzone_Components
+
+stages:
+  - stage:  Deployment
+    displayName:  Deployment
+    jobs:
+    - template: RemovePolicyAssignmentPipeline.yaml
+      parameters:
+        connectionService: 
+        - $(connectionService)
+        managementGroupName: $(managementgroupname)
+        deploymentBlocks:
+        - path: /GIS_Azure_Landingzone_Components/Policies/RecoveryVault
+          displayname: PolicyDeployDiagRecoveryVault
+          policy: Deploy-Diagnostics-RecoveryVaultAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/Relay
+          displayname: PolicyDeployDiagRelay
+          policy: Deploy-Diagnostics-RelayAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SearchServices
+          displayname: PolicyDeployDiagSearchServices
+          policy: Deploy-Diagnostics-SearchServicesAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ServiceBus
+          displayname: PolicyDeployDiagServiceBus
+          policy: Deploy-Diagnostics-ServiceBusAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SignalR
+          displayname: PolicyDeployDiagSignalR
+          policy: Deploy-Diagnostics-SignalRAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeployDiagSQLDB
+          policy: Deploy-Diagnostics-SQLDBsAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeployDiagSQLElasticPools
+          policy: Deploy-Diagnostics-SQLElasticPoolsAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StreamAnalytics
+          displayname: PolicyDeployDiagStreamAnalytics
+          policy: Deploy-Diagnostics-StreamAnalyticsAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/TimeSeriesInsights
+          displayname: PolicyDeployDiagTimeSeriesInsights
+          policy: Deploy-Diagnostics-TimeSeriesInsightsAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/TrafficManager
+          displayname: PolicyDeployDiagTrafficManager
+          policy: Deploy-Diagnostics-TrafficManagerAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualNetwork
+          displayname: PolicyDeployDiagVirtualNetwork
+          policy: Deploy-Diagnostics-VirtualNetworkAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualMachine
+          displayname: PolicyDeployDiagVM
+          policy: Deploy-Diagnostics-VMAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualNetworkGateway
+          displayname: PolicyDeployDiagVnetGW
+          policy: Deploy-Diagnostics-VNetGWAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WVD
+          displayname: PolicyDeployDiagWVDAppGroup
+          policy: Deploy-Diagnostics-WVDAppGroupAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WVD
+          displayname: PolicyDeployDiagWVDHostPools
+          policy: Deploy-Diagnostics-WVDHostPoolsAssign.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WVD
+          displayname: PolicyDeployDiagWVDWorkspace
+          policy: Deploy-Diagnostics-WVDWorkspaceAssign.json

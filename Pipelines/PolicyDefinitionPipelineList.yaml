@@ -1,0 +1,462 @@
+name: landingzone
+
+variables:
+- name: PipelineCustomVersion
+  value: 1.0.0
+- template: pipeline.environment.yaml 
+
+trigger:
+  batch: true
+  branches:
+    include:
+    - $(branchname)
+
+resources:
+  repositories:
+  - repository: components
+    type: github
+    ref: $(branchname)
+    endpoint: EliLillyCo (1)
+    name: EliLillyCo/GIS_Azure_Landingzone_Components
+
+stages:
+  - stage:  Deployment
+    displayName:  Deployment
+    jobs:
+    - template: PolicyDefinitionPipeline.yaml
+      parameters:
+        connectionService: 
+        - $(connectionService)
+        managementGroupName: $(managementgroupname)        
+        deploymentBlocks:
+        - path: /GIS_Azure_Landingzone_Components/Policies/Tagging
+          displayname: PolicyDenysubscriptionwithoutTags
+          policy: Deny-SubscriptionWithoutTag.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/Tagging
+          displayname: PolicyInheritAlltagsFromRGMissing
+          policy: inherit-AllTagsFromRGMissing.json
+        
+        - path: /GIS_Azure_Landingzone_Components/Policies/ContainerInstance
+          displayname: PolicyDefinitionDiagCI
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ContainerRegistry
+          displayname: PolicyDefinitionDiagCR
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AKS
+          displayname: PolicyDefinitionDenyPublicEndpointAKS
+          policy: deny_PublicEndpoint.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AKS
+          displayname: PolicyDefinitionDiagAKS
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AnalysisServices
+          displayname: PolicyDefinitionDiagAnalysisServices
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/APIManagement
+          displayname: PolicyDefinitionDiagAPI
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ApplicationGateway
+          displayname: PolicyDefinitionDiagAppGateway
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ApplicationGateway
+          displayname: PolicyDefinitionWAFAppGateway
+          policy: deny_AppGW_without_WAF.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AppServicePlan
+          displayname: PolicyDefinitionDiagAppServicePlan
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AutomationAccount
+          displayname: PolicyDefinitionDiagAutomationAccount
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AutomationAccount
+          displayname: PolicyDefinitionNoChildResourcesAutomationAccount
+          policy: noChildResources.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/AzureSQL
+          displayname: PolicyDefinitionDNSZoneAzureSQL
+          policy: DNS_Zone_PE.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/Batch
+          displayname: PolicyDefinitionDiagBatch
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/CDN
+          displayname: PolicyDefinitionDiagCDN
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/CognitiveServices
+          displayname: PolicyDefinitionDiagCognitiveServices
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/CosmosDB
+          displayname: PolicyDefinitionDiagCosmosDB
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/CosmosDB
+          displayname: PolicyDefinitiondenyPublicEndpointCosmosDB
+          policy: deny_PublicEndpoint.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/DataBricks
+          displayname: PolicyDefinitionDiagDataBricks
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/DataFactory
+          displayname: PolicyDefinitionDiagDataFactory
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/DataLakeAnalytics
+          displayname: PolicyDefinitionDiagDataLakeAnalytics
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/DataLakeStore
+          displayname: PolicyDefinitionDiagDataLakeStore
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/EventGrid
+          displayname: PolicyDefinitionDiagEventGrid
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/EventGridSystemTopic
+          displayname: PolicyDefinitionDiagEventGridSystemTopic
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/EventGridTopic
+          displayname: PolicyDefinitionDiagEventGridTopic
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/EventHub
+          displayname: PolicyDefinitionDiagEventHub
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ExpressRoute
+          displayname: PolicyDefinitionDiagExpressRoute
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/FrontDoor
+          displayname: PolicyDefinitionDiagFrontDoor
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/FunctionApp
+          displayname: PolicyDefinitionDiagFunctionApp
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/HDInsight
+          displayname: PolicyDefinitionDiagHDInsight
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/IoTHub
+          displayname: PolicyDefinitionDiagIoTHub
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/KeyVault
+          displayname: PolicyDefinitionDiagKeyVault
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/KeyVault
+          displayname: PolicyDefinitionAppendSoftDelete
+          policy: append_SoftDelete.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/KeyVault
+          displayname: PolicyDefinitionDenypublicEndpointKeyVault
+          policy: deny_PublicEndpoint.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/KeyVault
+          displayname: PolicyDefinitionDNSZoneKeyVault
+          policy: DNS_Zone_PE.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/LoadBalancer
+          displayname: PolicyDefinitionDiagLoadBalancer
+          policy: Diagnostics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDefinitionDNSZoneFileStorageAccount
+          policy: DNS_Zone_File_PE.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDefinitionDNSZoneQueueStorageAccount
+          policy: DNS_Zone_Queue_PE.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDefinitionDNSZoneTableStorageAccount
+          policy: DNS_Zone_Table_PE.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDefinitionDNSZoneBlobStorageAccount
+          policy: DNS_Zone_Blob_PE.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WebApp
+          displayname: PolicyDefinitionDiagWebApp
+          policy: Diagnostics.json
+          
+        - path: /GIS_Azure_Landingzone_Components/Policies/WebApp
+          displayname: PolicyAppServiceHttpsOnly
+          policy: Append-AppService-httpsonly.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WebApp
+          displayname: PolicyAppServiceLatestTLS
+          policy: Append-AppService-latestTLS.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/RedisCache
+          displayname: PolicyRedisNonSSLPort
+          policy: Append-Redis-disableNonSslPort.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/RedisCache
+          displayname: PolicyRedisSSLEnforcement
+          policy: Append-Redis-sslEnforcement.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ApiApp
+          displayname: PolicyDenyApiAppHttp
+          policy: Deny-AppServiceApiApp-http.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/FunctionApp
+          displayname: PolicyDenyAppFunctionHttp
+          policy: Deny-AppServiceFunctionApp-http.json
+          
+        - path: /GIS_Azure_Landingzone_Components/Policies/Governance
+          displayname: PolicyDenyRDPfromInternet
+          policy: RDP-from-Internet.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WebApp
+          displayname: PolicyDenyWebAppHttp
+          policy: Deny-AppServiceWebApp-http.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/DataExplorer
+          displayname: PolicyDiagDataExplorer
+          policy: Deploy-Diagnostics-DataExplorerCluster.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MySQL
+          displayname: PolicyDenyMySqlHttp
+          policy: Deny-MySql-http.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PostgreSQL
+          displayname: PolicyDenyPostgreSQLHttp
+          policy: Deny-PostgreSQL-http.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PrivateDNSZone
+          displayname: PolicyDenyPrivateDNSZone
+          policy: Deny-Private-DNS-Zone.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MariaDB
+          displayname: PolicyDenyPublicEndpointMariaDB
+          policy: Deny-publicEndpoint-MariaDB.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MySQL
+          displayname: PolicyDenyPublicEndpointMySQL
+          policy: Deny-PublicEndpoint-MySQL.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PostgreSQL
+          displayname: PolicyDenyPublicEndpointPostgreSQL
+          policy: Deny-PublicEndpoint-PostgreSQL.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDenyPublicEndpointSql
+          policy: Deny-PublicEndpoint-Sql.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDenyPublicEndpointStorage
+          policy: Deny-PublicEndpoint-Storage.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PublicIP
+          displayname: PolicyDenyPublicIP
+          policy: Deny-PublicIP.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/RedisCache
+          displayname: PolicyDenyRedisHttp
+          policy: Deny-Redis-http.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDenySqlMinTLS
+          policy: Deny-Sql-minTLS.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDenySqlManagedInstanceMinTLS
+          policy: Deny-SqlMi-minTLS.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDenyStorageMinTLS
+          policy: Deny-Storage-minTLS.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualNetwork
+          displayname: PolicyDenySubnetWithoutNSG
+          policy: Deny-Subnet-Without-Nsg.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualNetwork
+          displayname: PolicyDenySubnetWithoutUDR
+          policy: Deny-Subnet-Without-UDR.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/DDoS
+          displayname: PolicyDeployDDoSProtection
+          policy: Deploy-DDoSProtection.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeployDiagSQLMI
+          policy: Deploy-Diagnositcs-SQLMI.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/LogicApp
+          displayname: PolicyDeployDiagLogicAppISE
+          policy: Deploy-Diagnostics-LogicAppsISE.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/LogicApp
+          displayname: PolicyDeployDiagLogicAppWF
+          policy: Deploy-Diagnostics-LogicAppWF.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MariaDB
+          displayname: PolicyDeployDiagMariaDB
+          policy: Deploy-Diagnostics-MariaDB.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MediaServices
+          displayname: PolicyDeployDiagMediaService
+          policy: Deploy-Diagnostics-MediaService.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MachineLearning
+          displayname: PolicyDeployDiagMLWorkspace
+          policy: Deploy-Diagnostics-MlWorkspace.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MySQL
+          displayname: PolicyDeployDiagMySQL
+          policy: Deploy-Diagnostics-MySQL.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/NetworkSecurityGroup
+          displayname: PolicyDeployDiagNSG
+          policy: Deploy-Diagnostics-NetworkSecurityGroups.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/NetworkInterface
+          displayname: PolicyDeployDiagNIC
+          policy: Deploy-Diagnostics-NIC.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PostgreSQL
+          displayname: PolicyDeployDiagPostgreSQL
+          policy: Deploy-Diagnostics-PostgreSQL.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PowerBIEmbedded
+          displayname: PolicyDeployDiagPowerBIEmbedded
+          policy: Deploy-Diagnostics-PowerBIEmbedded.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/RecoveryVault
+          displayname: PolicyDeployDiagRecoveryVault
+          policy: Deploy-Diagnostics-RecoveryVault.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/RedisCache
+          displayname: PolicyDeployDiagRedisCache
+          policy: Deploy-Diagnostics-RedisCache.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/Relay
+          displayname: PolicyDeployDiagRelay
+          policy: Deploy-Diagnostics-Relay.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SearchServices
+          displayname: PolicyDeployDiagSearchServices
+          policy: Deploy-Diagnostics-SearchServices.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/ServiceBus
+          displayname: PolicyDeployDiagServiceBus
+          policy: Deploy-Diagnostics-ServiceBus.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SignalR
+          displayname: PolicyDeployDiagSignalR
+          policy: Deploy-Diagnostics-SignalR.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeployDiagSQLDB
+          policy: Deploy-Diagnostics-SQLDBs.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeployDiagSQLElasticPools
+          policy: Deploy-Diagnostics-SQLElasticPools.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StreamAnalytics
+          displayname: PolicyDeployDiagStreamAnalytics
+          policy: Deploy-Diagnostics-StreamAnalytics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/TimeSeriesInsights
+          displayname: PolicyDeployDiagTimeSeriesInsights
+          policy: Deploy-Diagnostics-TimeSeriesInsights.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/TrafficManager
+          displayname: PolicyDeployDiagTrafficManager
+          policy: Deploy-Diagnostics-TrafficManager.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualNetwork
+          displayname: PolicyDeployDiagVirtualNetwork
+          policy: Deploy-Diagnostics-VirtualNetwork.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualMachine
+          displayname: PolicyDeployDiagVM
+          policy: Deploy-Diagnostics-VM.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/VirtualNetworkGateway
+          displayname: PolicyDeployDiagVnetGW
+          policy: Deploy-Diagnostics-VNetGW.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WVD
+          displayname: PolicyDeployDiagWVDAppGroup
+          policy: Deploy-Diagnostics-WVDAppGroup.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WVD
+          displayname: PolicyDeployDiagWVDHostPools
+          policy: Deploy-Diagnostics-WVDHostPools.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/WVD
+          displayname: PolicyDeployDiagWVDWorkspace
+          policy: Deploy-Diagnostics-WVDWorkspace.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/LogAnalytics
+          displayname: PolicyDeployLAConfig
+          policy: Deploy-LA-Config.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/LogAnalytics
+          displayname: PolicyDeployLogAnalytics
+          policy: Deploy-Log-Analytics.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/MySQL
+          displayname: PolicyDeployMySQLSSLEnforcement
+          policy: Deploy-MySQL-sslEnforcement.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/NetworkSecurityGroup
+          displayname: PolicyDeployNSGFlowLogsToLA
+          policy: Deploy-Nsg-FlowLogs-to-LA.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/NetworkSecurityGroup
+          displayname: PolicyDeployNSGFlowLogs
+          policy: Deploy-Nsg-FlowLogs.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/PostgreSQL
+          displayname: PolicyDeployPostgreSQLsslEnforcement
+          policy: Deploy-PostgreSQL-sslEnforcement.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySQLAuditSettings
+          policy: Deploy-Sql-AuditingSettings.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySQLminTLS
+          policy: Deploy-SQL-minTLS.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySqlSecurityAlertPolicies
+          policy: Deploy-Sql-SecurityAlertPolicies.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySQLTDE
+          policy: Deploy-Sql-Tde.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySqlVulnerabilityAssessment
+          policy: Deploy-Sql-VunerabilityAssessments.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/SqlServer
+          displayname: PolicyDeploySqlMIminTLS
+          policy: Deploy-SqlMi-minTLS.json
+
+        - path: /GIS_Azure_Landingzone_Components/Policies/StorageAccount
+          displayname: PolicyDeployStorageSSLEnforcement
+          policy: Deploy-Storage-sslEnforcement.json
