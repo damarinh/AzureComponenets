@@ -1,0 +1,652 @@
+{
+    "name": "Deploy-Diagnostics-Initiative",
+    "properties": {
+        "displayName": "Resources Diagnostics logs Initiative",
+        "description": "This initiative contains policies developed based on ESLZ",
+        "metadata": {
+            "version": "1.0.0-preview",
+            "preview": true,
+            "category": "Diagnostics"
+        },
+        "policyDefinitionGroups": [
+        ],
+        "parameters": {
+            "loganalytics": {
+                "type": "string",
+                "metadata": {
+                 "displayName": "loganalytics"
+                }
+            }
+        },
+        "PolicyDefinitions": [
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-AKS",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-AnalysisService",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-APIMgmt",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-ApplicationGateway",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-WebServerFarm",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-AA",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-Batch",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-CDNEndpoints",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-CognitiveServices",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-ACI",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-ACR",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-CosmosDB",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-Databricks",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-DataExplorerCluster",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-DataFactory",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-DLAnalytics",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-DataLakeStore",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-EventGridSub",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-EventGridSystemTopic",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-EventGridTopic",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-EventHub",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-ExpressRoute",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-FrontDoor",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-Function",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-HDInsight",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-iotHub",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-KeyVault",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-LoadBalancer",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-LogicAppsWF",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-LogicAppsISE",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-MlWorkspace",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-MariaDB",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-MediaService",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-MySQL",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-NIC",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-NetworkSecurityGroups",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-PostgreSQL",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-PowerBIEmbedded",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-RecoveryVault",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-RedisCache",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-Relay",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-SearchServices",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-ServiceBus",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-SignalR",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-SQLMI",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-SQLDBs",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-SQLElasticPools",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-StreamAnalytics",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-TimeSeriesInsights",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-TrafficManager",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-VM",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-VirtualNetwork",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-VNetGW",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-Website",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-WVDAppGroup",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-WVDHostPools",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            },
+            {
+                "policyDefinitionReferenceId": "",
+                "policyDefinitionName": "Deploy-Diagnostics-WVDWorkspace",
+                "parameters": {
+                    "loganalytics": {
+                        "value": "[parameters('loganalytics')]"
+                    }
+                },
+                "groupNames": [
+                ]
+            }
+            
+        ]
+    }
+}

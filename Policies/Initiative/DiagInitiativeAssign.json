@@ -1,0 +1,17 @@
+{
+    "initiativeName": "Deploy-Diagnostics-Initiative",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Diagnostics-Initiative",
+            "parameters": {
+                "loganalytics": "/subscriptions/bd3b7a1d-88cd-43da-8f72-b789624abeb6/resourcegroups/prod-monitoring-rg/providers/microsoft.operationalinsights/workspaces/z1-prod-law-01"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

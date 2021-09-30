@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-PublicIP",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-PublicIP",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

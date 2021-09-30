@@ -1,0 +1,42 @@
+{
+  "description": "This policy denies creation of Postgre SQL DB accounts with exposed public endpoints",
+  "displayName": "Public network access should be disabled for PostgreSql",
+  "mode": "Indexed",
+  "parameters": {
+    "effect": {
+      "type": "String",
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Deny",
+      "metadata": {
+        "displayName": "Effect",
+        "description": "Enable or disable the execution of the policy"
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "category": "SQL"
+  },
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.DBforPostgreSQL/servers"
+        },
+        {
+          "field": "Microsoft.DBforPostgreSQL/servers/publicNetworkAccess",
+          "notequals": "Disabled"
+        }
+      ]
+    },
+    "then": {
+      "effect": "[parameters('effect')]"
+    }
+  },
+  "name": "Deny-PublicEndpoint-PostgreSql"
+}

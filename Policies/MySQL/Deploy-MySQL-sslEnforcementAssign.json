@@ -1,0 +1,16 @@
+{
+  "policyName": "Deploy-MySQL-sslEnforcement",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deploy-MySQL-sslEnforce",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

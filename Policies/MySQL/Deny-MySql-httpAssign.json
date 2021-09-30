@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-MySql-http",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-MySql-http",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

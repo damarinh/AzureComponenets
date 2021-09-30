@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-PublicEndpoint-PostgreSql",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-PublicEndPostgreSql",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

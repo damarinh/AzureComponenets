@@ -1,0 +1,16 @@
+{
+  "policyName": "Append-Redis-sslEnforcement",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Append-Redis-sslEnforce",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

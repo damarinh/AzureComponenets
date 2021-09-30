@@ -1,0 +1,16 @@
+{
+    "policyName": "Append-Redis-disableNonSslPort",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Append-Redis-disNonSsl",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

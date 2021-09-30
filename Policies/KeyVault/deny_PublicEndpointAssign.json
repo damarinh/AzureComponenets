@@ -1,0 +1,16 @@
+{
+    "policyName": "Deny-PublicEndpoint-KeyVault",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deny-PublicEndpoint-KV",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

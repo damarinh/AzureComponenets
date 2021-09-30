@@ -1,0 +1,16 @@
+{
+    "policyName": "Append-KV-SoftDelete",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Append-KV-SoftDelete",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

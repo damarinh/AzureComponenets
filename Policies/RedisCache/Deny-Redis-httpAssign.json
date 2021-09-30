@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-Redis-http",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-Redis-http",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

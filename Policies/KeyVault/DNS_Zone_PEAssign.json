@@ -1,0 +1,17 @@
+{
+    "policyName": "Deploy-DNSZoneGroup-For-KeyVault-PrivateEndpoint",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deploy-DNS-KV-PrivateEnd",
+            "parameters": {
+                "privateDnsZoneId": ""
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

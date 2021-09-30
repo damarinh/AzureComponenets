@@ -1,0 +1,16 @@
+{
+  "policyName": "Deploy-PostgreSQL-sslEnforcement",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deploy-PostgreEnforceSsl",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}
