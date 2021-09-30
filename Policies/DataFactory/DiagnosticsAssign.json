@@ -1,0 +1,17 @@
+{
+    "policyName": "Deploy-Diagnostics-DataFactory",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deploy-Diag-DataFactory",
+            "parameters": {
+                "logAnalytics": "/subscriptions/c36a27fc-1af2-4bd0-b6a5-97a467b838d9/resourcegroups/dev-monitoring-rg/providers/microsoft.operationalinsights/workspaces/z1-dev-law-mgt-01"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

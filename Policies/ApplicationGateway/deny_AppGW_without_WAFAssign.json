@@ -1,0 +1,17 @@
+{
+    "policyName": "Deny-AppGW-Without-WAF",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "AppGW-Without-WAF",
+            "parameters": {
+                "effect": "Audit"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

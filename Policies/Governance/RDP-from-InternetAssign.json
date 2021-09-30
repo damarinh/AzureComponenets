@@ -1,0 +1,16 @@
+{
+    "policyName": "Deny-RDP-From-Internet",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deny-RDP-From-Internet",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

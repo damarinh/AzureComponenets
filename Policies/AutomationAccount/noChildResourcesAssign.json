@@ -1,0 +1,16 @@
+{
+    "policyName": "Deny-AA-child-resources",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deny-AA-child-resources",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

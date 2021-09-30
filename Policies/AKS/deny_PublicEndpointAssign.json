@@ -1,0 +1,16 @@
+{
+    "policyName": "Deny-PublicEndpoint-AKS",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deny-PublicEndpoint-Aks",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

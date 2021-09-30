@@ -1,0 +1,16 @@
+{
+    "policyName": "Deny-PublicEndpoint-CosmosDB",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deny-PublicEnd-CosmosDB",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

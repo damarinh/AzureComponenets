@@ -1,0 +1,17 @@
+{
+    "policyName": "Deny-AppServiceApiApp-http",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deny-AppSrvApiApp-http",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+  }
+  
