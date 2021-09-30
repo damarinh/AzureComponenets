@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-SqlMi-minTLS",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-SqlMi-minTLS",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

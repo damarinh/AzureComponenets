@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-Subnet-Without-UDR",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-Subnet-Without-UDR",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

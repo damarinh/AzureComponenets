@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-Subnet-Without-Nsg",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-Subnet-Without-Nsg",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

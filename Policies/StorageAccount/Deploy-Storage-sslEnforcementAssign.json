@@ -1,0 +1,16 @@
+{
+    "policyName": "Deploy-Storage-sslEnforcement",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deploy-StorageSslEnforce",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

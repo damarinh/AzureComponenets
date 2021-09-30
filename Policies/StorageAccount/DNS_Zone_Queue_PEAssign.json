@@ -1,0 +1,17 @@
+{
+    "policyName": "Deploy-DNSZoneGroup-For-Queue-PrivateEndpoint",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deploy-DNSQueuePrivatEnd",
+            "parameters": {
+                "privateDnsZoneId": ""
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

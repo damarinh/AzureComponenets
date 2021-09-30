@@ -1,0 +1,16 @@
+{
+    "policyName": "Append-AppService-httpsonly",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "AppendAppSrvhttpsonly",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

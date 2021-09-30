@@ -1,0 +1,98 @@
+{
+    "policyName": "inherit-AllTagsFromRGMissing",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "inherit-tag-Level1BusinessArea",
+            "parameters": {
+                "tagName": "Level1BusinessArea"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "inherit-tag-ApplicationServiceCI",
+            "parameters": {
+                "tagName": "ApplicationServiceCI"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "inherit-tag-CostCenter",
+            "parameters": {
+                "tagName": "CostCenter"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "inherit-tag-DataClassification",
+            "parameters": {
+                "tagName": "DataClassification"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "inherit-tag-Environment",
+            "parameters": {
+                "tagName": "Environment"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },{
+            "name": "mgmt group",
+            "assignmentName": "inherit-tag-PrimaryItContact",
+            "parameters": {
+                "tagName": "PrimaryItContact"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },{
+            "name": "mgmt group",
+            "assignmentName": "inherit-tag-SystemCustodian",
+            "parameters": {
+                "tagName": "SystemCustodian"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },{
+            "name": "mgmt group",
+            "assignmentName": "inherit-tag-SystemOwner",
+            "parameters": {
+                "tagName": "SystemOwner"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

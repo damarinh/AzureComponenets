@@ -1,0 +1,18 @@
+{
+  "policyName": "Deploy-Sql-vulnerabilityAssessments",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deploy-Sql-vulnerAssess",
+          "parameters": {
+              "vulnerabilityAssessmentsEmail": "",
+              "vulnerabilityAssessmentsStorageID": ""
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

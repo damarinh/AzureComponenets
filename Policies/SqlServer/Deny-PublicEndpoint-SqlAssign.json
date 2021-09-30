@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-PublicEndpoint-Sql",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-PublicEndpoint-Sql",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

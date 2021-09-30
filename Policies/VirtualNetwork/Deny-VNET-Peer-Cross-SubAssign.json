@@ -1,0 +1,16 @@
+{
+  "policyName": "Deny-VNET-Peer-Cross-Sub",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deny-VNET-Peer-Cross-Sub",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

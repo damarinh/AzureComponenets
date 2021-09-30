@@ -1,0 +1,18 @@
+{
+    "policyName": "4f9dc7db-30c1-420c-b61a-e1d640128d26",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Add-tag-TechnicalServiceOfferingCI",
+            "parameters": {
+                "tagName": "TechnicalServiceOfferingCI",
+                "tagValue": ""
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

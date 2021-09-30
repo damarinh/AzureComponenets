@@ -1,0 +1,110 @@
+{
+    "policyName": "DenySubscriptionWithoutTag",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-Level1BusinessArea",
+            "parameters": {
+                "tagName": "Level1BusinessArea"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-SubscriptionOwner",
+            "parameters": {
+                "tagName": "SubscriptionOwner"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-ApplicationServiceCI",
+            "parameters": {
+                "tagName": "ApplicationServiceCI"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-CostCenter",
+            "parameters": {
+                "tagName": "CostCenter"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-DataClassification",
+            "parameters": {
+                "tagName": "DataClassification"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },
+        {
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-Environment",
+            "parameters": {
+                "tagName": "Environment"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },{
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-PrimaryItContact",
+            "parameters": {
+                "tagName": "PrimaryItContact"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },{
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-SystemCustodian",
+            "parameters": {
+                "tagName": "SystemCustodian"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        },{
+            "name": "mgmt group",
+            "assignmentName": "deny-tag-sub-SystemOwner",
+            "parameters": {
+                "tagName": "SystemOwner"
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

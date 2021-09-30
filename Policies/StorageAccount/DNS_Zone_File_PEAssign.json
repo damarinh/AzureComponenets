@@ -1,0 +1,17 @@
+{
+    "policyName": "Deploy-DNSZoneGroup-For-File-PrivateEndpoint",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Deploy-DNSFilePrivatEnd",
+            "parameters": {
+                "privateDnsZoneId": ""
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

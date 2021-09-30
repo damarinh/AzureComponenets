@@ -1,0 +1,16 @@
+{
+  "policyName": "Deploy-Sql-Tde",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deploy-Sql-Tde",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

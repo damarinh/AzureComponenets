@@ -1,0 +1,16 @@
+{
+  "policyName": "Deploy-Sql-AuditingSettings",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deploy-Sql-AuditSettings",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

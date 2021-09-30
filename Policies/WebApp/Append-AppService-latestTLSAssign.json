@@ -1,0 +1,16 @@
+{
+    "policyName": "Append-AppService-latestTLS",
+    "scopeGroupList": [
+        {
+            "name": "mgmt group",
+            "assignmentName": "Append-WebApp-latestTLS",
+            "parameters": {
+            },
+            "scopeList": [
+                {
+                    "managementGroupName": "dev-lz-mg"
+                }
+            ]
+        }
+    ]
+}

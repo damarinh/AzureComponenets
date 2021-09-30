@@ -1,0 +1,17 @@
+{
+  "policyName": "Deploy-Sql-SecurityAlertPolicies",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deploy-Sql-SecurityAlert",
+          "parameters": {
+            
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}

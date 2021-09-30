@@ -1,0 +1,16 @@
+{
+  "policyName": "Deploy-SqlMi-minTLS",
+  "scopeGroupList": [
+      {
+          "name": "mgmt group",
+          "assignmentName": "Deploy-SqlMi-minTLS",
+          "parameters": {
+          },
+          "scopeList": [
+              {
+                  "managementGroupName": "dev-lz-mg"
+              }
+          ]
+      }
+  ]
+}
